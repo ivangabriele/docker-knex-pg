@@ -5,11 +5,11 @@ matrix:
   fast_finish: true
 
 env:
-  - NODE_VERSION=12 KNEX_VERSION=0 PG_VERSION=7 PATCH_VERSION=0
+  - NODE_VERSION=12 KNEX_VERSION=0 PG_VERSION=7
 
 before_script:
-  - cd "${NODE_VERSION}/${KNEX_VERSION}/${PG_VERSION}/${PATCH_VERSION}"
-  - IMAGE="igabriele/knex-pg:${NODE_VERSION}:${KNEX_VERSION}:${PG_VERSION}:${PATCH_VERSION}"
+  - cd "${NODE_VERSION}/${KNEX_VERSION}/${PG_VERSION}"
+  - IMAGE="igabriele/knex-pg:${NODE_VERSION}:${KNEX_VERSION}:${PG_VERSION}"
 script:
   - docker build -t "${IMAGE}" .
 
