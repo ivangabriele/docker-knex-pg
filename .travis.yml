@@ -1,0 +1,35 @@
+language: bash
+services: docker
+
+matrix:
+  fast_finish: true
+
+env:
+  - NODE_VERSION=12 KNEX_VERSION=0 PG_VERSION=7 PATCH_VERSION=0
+
+before_script:
+  - cd "${NODE_VERSION}/${KNEX_VERSION}/${PG_VERSION}/${PATCH_VERSION}"
+  - IMAGE="igabriele/knex-pg:${NODE_VERSION}:${KNEX_VERSION}:${PG_VERSION}:${PATCH_VERSION}"
+script:
+  - docker build -t "${IMAGE}" .
+
+before_deploy:
+  - cd ../../../..
+  - docker images
+deploy:
+  provider: script
+  script: ./scripts/ci/push_to_docker.sh
+  skip_cleanup: true
+  on:
+    branch: master
+    repo: ivangabriele/docker-knex-pg
+
+# Limit branches builds to "master" one:
+branches:
+  only:
+    - master
+
+notifications:
+  email:
+    on_failure: change
+    on_success: never
