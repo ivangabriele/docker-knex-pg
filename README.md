@@ -1,4 +1,4 @@
-# PostgreSQL Docker image with pgjwt extension
+# Node Docker image with knex and pg
 
 [![img-docker]][link-docker]
 [![img-travis]][link-travis]
