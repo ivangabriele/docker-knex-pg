@@ -9,7 +9,7 @@ A Docker image base on [`node` (alpine)][link-node] including:
 
 ## Supported tags and respective `Dockerfile` links
 
-- [`12.0.7`](https://github.com/ivangabriele/docker-postgresql-jwt/blob/master/12/0/7/Dockerfile)
+- [`12.0.7.0`](https://github.com/ivangabriele/docker-postgresql-jwt/blob/master/12/0/7/0/Dockerfile)
     - `node:12.14.1-alpine`
     - `knex@0.20.8`
     - `pg@7.17.1`
